@@ -21,7 +21,7 @@ export default function Header() {
               animate={{ y: 0, opacity: 1 }}>
               <Link
                 href={link.hash}
-                className=" px-3 py-3 transition hover:text-gray-950  dark:text-gray-500 dark:hover:text-gray-300">
+                className="px-3 py-3 transition duration-300 ease-in-out hover:text-gray-950 dark:text-gray-500 dark:hover:text-gray-300">
                 {link.name}
               </Link>
             </motion.li>

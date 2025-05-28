@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { BackgroundBlur } from '../components/BackgroundBlur';
+import { BackgroundBlur } from '@/components/BackgroundBlur';
+import Header from '@/components/Header';
 
 const inter = Inter({
   variable: '--font-inter',
@@ -49,8 +50,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 overflow-x-hidden`}>
+        className={`${inter.variable} antialiased bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 overflow-x-hidden h-[5000px]`}>
         <BackgroundBlur />
+        <Header />
         {children}
       </body>
     </html>
