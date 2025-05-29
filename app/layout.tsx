@@ -1,45 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { BackgroundBlur } from '@/components/BackgroundBlur';
 import Header from '@/components/Header';
+import { BackgroundBlur } from '@/components/BackgroundBlur';
+import './debug.css'; // Import the new CSS file
 
-const inter = Inter({
-  variable: '--font-inter',
-  subsets: ['latin'],
-});
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Felix Drawe | Portfolio',
-  keywords: [
-    'Portfolio',
-    'Felix Drawe',
-    'Web Developer',
-    'Berlin',
-    'Germany',
-    'Web Development',
-    'Frontend Developer',
-  ],
-  // authors: [{ name: 'Felix Drawe', url: 'https://felixdrawe.com' }],
-  // creator: 'Felix Drawe',
-  // openGraph: {
-  //   title: 'Felix Drawe | Portfolio',
-  //   description:
-  //     'Portfolio of Felix Drawe, a web developer specializing in modern web technologies.',
-  //   url: 'https://felixdrawe.com',
-  //   siteName: 'Felix Drawe | Portfolio',
-  //   images: [
-  //     {
-  //       url: 'https://felixdrawe.com/og-image.png',
-  //       width: 1200,
-  //       height: 630,
-  //       alt: 'Felix Drawe Portfolio',
-  //     },
-  //   ],
-  // },
-
-  description:
-    'Felix Drawe is a web developer based in Berlin Germany specializing in modern web technologies.',
+  title: 'Felix Drawe | Personal Portfolio',
+  description: 'Felix Drawe is a web developer with 1 year of experience.',
 };
 
 export default function RootLayout({
@@ -48,9 +18,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth">
+    <html lang="en">
       <body
-        className={`${inter.variable} antialiased bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 overflow-x-hidden`}>
+        className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90 `}>
         <BackgroundBlur />
         <Header />
         {children}
@@ -58,3 +28,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+// min-h-[200rem]

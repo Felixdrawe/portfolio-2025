@@ -1,14 +1,12 @@
 'use client';
 
-import SectionHeading from './section-heading';
+import SectionHeading from './Section-heading';
 import { projectsData } from '@/lib/data';
-import Project from './project';
+import Project from './Project';
 import { motion } from 'framer-motion';
 import React from 'react';
 
 export default function Projects() {
- 
-
   return (
     <section>
       <SectionHeading>My projects</SectionHeading>

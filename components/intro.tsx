@@ -8,17 +8,15 @@ import { FaGithubSquare } from 'react-icons/fa';
 
 export default function Intro() {
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0  ">
+    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
       <div className="flex items-center justify-center">
-        <div className="relative ">
+        <div className="relative">
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
               type: 'tween',
               duration: 0.3,
-              //   stiffness: 260,
-              //   damping: 20,
             }}>
             <Image
               src="/felix.png"
@@ -27,19 +25,19 @@ export default function Intro() {
               height={192}
               quality={95}
               priority={true}
-              className="rounded-full size-[7rem] object-cover border-[0.3rem] border-gray-200 shadow-xl "
+              className="rounded-full size-[7rem] object-cover border-[0.3rem] border-gray-200 shadow-xl"
             />
           </motion.div>
           <motion.span
-            className="text-4xl absolute bottom-0 right-0 "
+            className="text-4xl absolute bottom-0 right-0"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
               type: 'spring',
               stiffness: 130,
-              //   damping: 20,
               delay: 0.3,
-            }}>
+            }}
+            aria-hidden="true">
             👋
           </motion.span>
         </div>
@@ -47,8 +45,9 @@ export default function Intro() {
       <motion.h1
         className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}>
-        <span className="font-bold">Hello, I'm Felix.</span> I'm a{' '}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}>
+        <span className="font-bold">Hello, I&apos;m Felix.</span> I&apos;m a{' '}
         <span className="font-bold">Web Developer</span> with{' '}
         <span className="font-bold">1 year</span> of experience. I enjoy building{' '}
         <span className="italic">sites & apps</span>. My focus is{' '}
@@ -56,7 +55,7 @@ export default function Intro() {
       </motion.h1>
 
       <motion.div
-        className="flex flex-col sm:flex-row  gap-2 px-10  text-lg font-medium justify-center"
+        className="flex flex-col sm:flex-row gap-2 px-4 sm:px-10 text-lg font-medium justify-center items-center"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -64,31 +63,37 @@ export default function Intro() {
         }}>
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center justify-center gap-2 rounded-full outline-none hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out hover:bg-gray-950 cursor-pointer">
+          className="group bg-gray-900 text-white px-7 py-3 flex items-center justify-center gap-2 rounded-full outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out hover:bg-gray-950 cursor-pointer">
           Contact me here{' '}
           <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition duration-300 ease-in-out" />
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full justify-center outline-none hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer"
+          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer"
           href="/CV.pdf"
           download>
           Download CV{' '}
           <HiDownload className="opacity-70 group-hover:translate-y-1 transition duration-300 ease-in-out" />
         </a>
 
-        <a
-          className="bg-white  p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center outline-none hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
-          href="https://www.linkedin.com/in/felix-drawe-b3b1b31a/"
-          target="_blank">
-          <BsLinkedin />
-        </a>
-        <a
-          className="bg-white  p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center  outline-none hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
-          href="https://github.com/felixdrawe"
-          target="_blank">
-          <FaGithubSquare />
-        </a>
+        <div className="flex gap-2 justify-center">
+          <a
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
+            href="https://www.linkedin.com/in/felix-drawe-b3b1b31a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn Profile">
+            <BsLinkedin />
+          </a>
+          <a
+            className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
+            href="https://github.com/felixdrawe"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub Profile">
+            <FaGithubSquare />
+          </a>
+        </div>
       </motion.div>
     </section>
   );
