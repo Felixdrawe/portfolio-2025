@@ -9,10 +9,11 @@ import { useActiveSectionContext } from '@/context/active-section-context';
 import { useSectionInView } from '@/lib/hooks';
 
 export default function Intro() {
+  // Using a custom threshold for Home
   const { ref } = useSectionInView('Home', 0.5);
   const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   return (
-    <section ref={ref} className="mb-28 max-w-[50rem] scroll-mt-50 text-center sm:mb-0" id="home">
+    <section ref={ref} className="mb-28 max-w-[50rem] scroll-mt-28 text-center sm:mb-0" id="home">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
