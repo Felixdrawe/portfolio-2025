@@ -1,6 +1,6 @@
 'use client';
 
-import SectionHeading from './Section-heading';
+import SectionHeading from './SectionHeading';
 import { projectsData } from '@/lib/data';
 import Project from './Project';
 import React from 'react';

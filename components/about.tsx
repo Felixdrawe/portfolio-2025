@@ -1,6 +1,6 @@
 'use client';
 
-import SectionHeading from './Section-heading';
+import SectionHeading from './SectionHeading';
 import { motion } from 'framer-motion';
 import { useSectionInView } from '@/lib/hooks';
 
