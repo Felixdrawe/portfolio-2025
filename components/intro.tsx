@@ -5,10 +5,14 @@ import { motion } from 'framer-motion';
 import { BsArrowRight, BsLinkedin } from 'react-icons/bs';
 import { HiDownload } from 'react-icons/hi';
 import { FaGithubSquare } from 'react-icons/fa';
+import { useActiveSectionContext } from '@/context/active-section-context';
+import { useSectionInView } from '@/lib/hooks';
 
 export default function Intro() {
+  const { ref } = useSectionInView('Home', 0.5);
+  const { setActiveSection, setTimeOfLastClick } = useActiveSectionContext();
   return (
-    <section className="mb-28 max-w-[50rem] text-center sm:mb-0">
+    <section ref={ref} className="mb-28 max-w-[50rem] scroll-mt-50 text-center sm:mb-0" id="home">
       <div className="flex items-center justify-center">
         <div className="relative">
           <motion.div
@@ -17,7 +21,8 @@ export default function Intro() {
             transition={{
               type: 'tween',
               duration: 0.3,
-            }}>
+            }}
+          >
             <Image
               src="/felix.png"
               alt="Felix Drawe Web Developer portrait"
@@ -25,11 +30,11 @@ export default function Intro() {
               height={192}
               quality={95}
               priority={true}
-              className="rounded-full size-[7rem] object-cover border-[0.3rem] border-gray-200 shadow-xl"
+              className="size-[7rem] rounded-full border-[0.3rem] border-gray-200 object-cover shadow-xl"
             />
           </motion.div>
           <motion.span
-            className="text-4xl absolute bottom-0 right-0"
+            className="absolute right-0 bottom-0 text-4xl"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{
@@ -37,16 +42,18 @@ export default function Intro() {
               stiffness: 130,
               delay: 0.3,
             }}
-            aria-hidden="true">
+            aria-hidden="true"
+          >
             👋
           </motion.span>
         </div>
       </div>
       <motion.h1
-        className="mb-10 mt-4 px-4 text-2xl font-medium !leading-[1.5] sm:text-4xl"
+        className="mt-4 mb-10 px-4 text-2xl !leading-[1.5] font-medium sm:text-4xl"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}>
+        transition={{ duration: 0.5 }}
+      >
         <span className="font-bold">Hello, I&apos;m Felix.</span> I&apos;m a{' '}
         <span className="font-bold">Web Developer</span> with{' '}
         <span className="font-bold">1 year</span> of experience. I enjoy building{' '}
@@ -55,42 +62,51 @@ export default function Intro() {
       </motion.h1>
 
       <motion.div
-        className="flex flex-col sm:flex-row gap-2 px-4 sm:px-10 text-lg font-medium justify-center items-center"
+        className="flex flex-col items-center justify-center gap-2 px-4 text-lg font-medium sm:flex-row sm:px-10"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
           delay: 0.15,
-        }}>
+        }}
+      >
         <Link
           href="#contact"
-          className="group bg-gray-900 text-white px-7 py-3 flex items-center justify-center gap-2 rounded-full outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out hover:bg-gray-950 cursor-pointer">
+          className="group flex cursor-pointer items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white transition duration-300 ease-in-out outline-none hover:scale-110 hover:bg-gray-950 focus:scale-110 focus:ring-2 focus:ring-offset-2 active:scale-105"
+          onClick={() => {
+            setActiveSection('Contact');
+            setTimeOfLastClick(Date.now());
+          }}
+        >
           Contact me here{' '}
-          <BsArrowRight className="opacity-70 group-hover:translate-x-1 transition duration-300 ease-in-out" />
+          <BsArrowRight className="opacity-70 transition duration-300 ease-in-out group-hover:translate-x-1" />
         </Link>
 
         <a
-          className="group bg-white px-7 py-3 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-110 focus:scale-110 active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer"
+          className="group flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 transition duration-300 ease-in-out outline-none hover:scale-110 focus:scale-110 focus:ring-2 focus:ring-offset-2 active:scale-105"
           href="/CV.pdf"
-          download>
+          download
+        >
           Download CV{' '}
-          <HiDownload className="opacity-70 group-hover:translate-y-1 transition duration-300 ease-in-out" />
+          <HiDownload className="opacity-70 transition duration-300 ease-in-out group-hover:translate-y-1" />
         </a>
 
-        <div className="flex gap-2 justify-center">
+        <div className="flex justify-center gap-2">
           <a
-            className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
+            className="flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
             href="https://www.linkedin.com/in/felix-drawe-b3b1b31a/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn Profile">
+            aria-label="LinkedIn Profile"
+          >
             <BsLinkedin />
           </a>
           <a
-            className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full justify-center outline-none focus:ring-2 focus:ring-offset-2 hover:scale-[1.15] focus:scale-[1.15] active:scale-105 transition duration-300 ease-in-out border border-black/10 cursor-pointer hover:text-gray-950"
+            className="flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
             href="https://github.com/felixdrawe"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub Profile">
+            aria-label="GitHub Profile"
+          >
             <FaGithubSquare />
           </a>
         </div>
