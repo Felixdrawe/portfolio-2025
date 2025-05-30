@@ -9,13 +9,7 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "production": "next build && next start",
-    "check-case": "find . -type f -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.js\" -o -name \"*.jsx\" | sort -f | uniq -i -d",
-    "list-components": "find ./components -type f | sort",
-    "list-app": "find ./app -type f | sort",
-    "check-imports": "grep -r \"import.*from.*components\" ./app ./components --include=\"*.tsx\" --include=\"*.ts\"",
-    "check-skills": "grep -r \"import.*from\" ./components/Skills.tsx",
-    "view-skills": "cat ./components/Skills.tsx"
+    "production": "next build && next start"
   },
   "dependencies": {
     "clsx": "^2.1.1",
