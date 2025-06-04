@@ -4,11 +4,11 @@ import { motion } from 'framer-motion'; // Import motion component from framer-m
 
 export function BackgroundBlur() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
       {/* First gradient blob (pink/red) - positioned in top right */}
       <motion.div
         // Base styling for the blob:
-        className="absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full blur-[8rem] sm:w-[68.75rem] opacity-80"
+        className="absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] rounded-full opacity-80 blur-[8rem] sm:w-[68.75rem]"
         // Animation properties that will change over time:
         animate={{
           // Even more enhanced movement range
@@ -62,7 +62,7 @@ export function BackgroundBlur() {
 
       {/* Second gradient blob (purple/blue) - positioned in top left */}
       <motion.div
-        className="absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full blur-[8rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] opacity-80"
+        className="absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] rounded-full opacity-80 blur-[8rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"
         animate={{
           // More dramatic movement
           x: [0, 70, -60, 50, 0],
@@ -113,7 +113,7 @@ export function BackgroundBlur() {
 
       {/* Third gradient blob (green) - positioned bottom right */}
       <motion.div
-        className="absolute bottom-[-10rem] -z-10 right-[-20rem] h-[40rem] w-[40rem] rounded-full blur-[8rem] opacity-75 hidden md:block"
+        className="absolute right-[-20rem] bottom-[-10rem] -z-10 hidden h-[40rem] w-[40rem] rounded-full opacity-75 blur-[8rem] md:block"
         animate={{
           // More pronounced circular motion
           x: [0, 60, 0, -60, 0],
@@ -164,7 +164,7 @@ export function BackgroundBlur() {
 
       {/* Fourth gradient blob (light blue) - only visible on large screens */}
       <motion.div
-        className="absolute top-[20rem] -z-10 left-[30rem] h-[25rem] w-[25rem] rounded-full blur-[8rem] opacity-70 hidden lg:block"
+        className="absolute top-[20rem] left-[30rem] -z-10 hidden h-[25rem] w-[25rem] rounded-full opacity-70 blur-[8rem] lg:block"
         animate={{
           // More pronounced figure-8 like motion
           x: [0, -70, 0, 70, 0],

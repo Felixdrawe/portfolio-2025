@@ -73,9 +73,18 @@ export default function Intro() {
         <Link
           href="#contact"
           className="group flex cursor-pointer items-center justify-center gap-2 rounded-full bg-gray-900 px-7 py-3 text-white transition duration-300 ease-in-out outline-none hover:scale-110 hover:bg-gray-950 focus:scale-110 focus:ring-2 focus:ring-offset-2 active:scale-105"
-          onClick={() => {
+          onClick={(e) => {
             setActiveSection('Contact');
             setTimeOfLastClick(Date.now());
+            // Store a reference to the current target
+            const target = e.currentTarget;
+            // Remove focus after a small delay
+            setTimeout(() => {
+              // Check if the element still exists before blurring
+              if (target) {
+                target.blur();
+              }
+            }, 200);
           }}
         >
           Contact me here{' '}
@@ -83,9 +92,20 @@ export default function Intro() {
         </Link>
 
         <a
-          className="group flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white px-7 py-3 transition duration-300 ease-in-out outline-none hover:scale-110 focus:scale-110 focus:ring-2 focus:ring-offset-2 active:scale-105"
+          className="group borderBlack flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white px-7 py-3 transition duration-300 ease-in-out outline-none hover:scale-110 focus:scale-110 focus:ring-2 focus:ring-offset-2 active:scale-105"
           href="/CV.pdf"
           download
+          onClick={(e) => {
+            // Store a reference to the current target
+            const target = e.currentTarget;
+            // Allow a small delay for the download to start
+            setTimeout(() => {
+              // Check if the element still exists before blurring
+              if (target) {
+                target.blur();
+              }
+            }, 200);
+          }}
         >
           Download CV{' '}
           <HiDownload className="opacity-70 transition duration-300 ease-in-out group-hover:translate-y-1" />
@@ -93,20 +113,40 @@ export default function Intro() {
 
         <div className="flex justify-center gap-2">
           <a
-            className="flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
+            className="borderBlack flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
             href="https://www.linkedin.com/in/felix-drawe-b3b1b31a/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
+            onClick={(e) => {
+              // Store a reference to the current target
+              const target = e.currentTarget;
+              // Remove focus after clicking
+              setTimeout(() => {
+                if (target) {
+                  target.blur();
+                }
+              }, 200);
+            }}
           >
             <BsLinkedin />
           </a>
           <a
-            className="flex cursor-pointer items-center justify-center gap-2 rounded-full border border-black/10 bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
+            className="borderBlack flex cursor-pointer items-center justify-center gap-2 rounded-full bg-white p-4 text-gray-700 transition duration-300 ease-in-out outline-none hover:scale-[1.15] hover:text-gray-950 focus:scale-[1.15] focus:ring-2 focus:ring-offset-2 active:scale-105"
             href="https://github.com/felixdrawe"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
+            onClick={(e) => {
+              // Store a reference to the current target
+              const target = e.currentTarget;
+              // Remove focus after clicking
+              setTimeout(() => {
+                if (target) {
+                  target.blur();
+                }
+              }, 200);
+            }}
           >
             <FaGithubSquare />
           </a>
